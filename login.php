@@ -20,6 +20,6 @@ if(isset($_POST['email'])){
 	}
 }
 
-echo $twig->render('login.html',['error' => $error]);
+echo $twig->render('login.html',['error' => $error, 'post' => $_POST]);
 
 ?>

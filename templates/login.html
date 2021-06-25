@@ -6,7 +6,7 @@
 <div class="section">
 	<form class="generatedForm" method ='POST'>
 		<label for "email" style="margin-right: 46px;">Email: </label>
-		<input type="email" id="email" placeholder="Email" name ="email">
+		<input type="email" id="email" placeholder="Email" name ="email" value="{% if post['email'] is defined %}{{post['email']}}{% endif %}">
 		<br>
 		<label for "password">Password: </label>
 		<input type="password" id="password" placeholder="Password" name ="password">

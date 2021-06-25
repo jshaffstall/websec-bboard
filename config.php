@@ -23,3 +23,9 @@ if (!isset($twig))
     $twig = new \Twig\Environment($twigloader, ['cache' => False]);
     $twig->addGlobal('user', $user);
 }
+
+function is_admin($user)
+{
+    return $user && $user['role'] == 1;
+}
+

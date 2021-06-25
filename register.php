@@ -23,8 +23,6 @@ if(isset($_POST['email'])){
         $error = add_user($_POST['name'], $_POST['email'], $password);
         
         if(! $error){
-            session_regenerate_id(true);
-            $_SESSION['user'] = $_POST['email'];
             header("Location: index.php");
             exit();
         }
