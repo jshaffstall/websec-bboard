@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="section">
+	<form class="generatedForm" method ='POST'>
+		<label for "email" style="margin-right: 46px;">Email: </label>
+		<input type="email" id="email" placeholder="Email" name ="email">
+		<br>
+		<label for "password">Password: </label>
+		<input type="password" id="password" placeholder="Password" name ="password">
+		<br>
+		<input class="siteForm" style="margin-left:20px; width:46%;" type="submit" value = "Log in">
+	</form>	
+</div>
+{% endblock %}

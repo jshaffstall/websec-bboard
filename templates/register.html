@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="section">
+	<form class="generatedForm" method ='POST'>
+		<label for "name" style="margin-right: 42px;">Name: </label>
+		<input type="text" id="name" placeholder="Name" name ="name" value="{% if post['name'] is defined %}{{post['name']}}{% endif %}">
+		<br>
+		<label for "email" style="margin-right: 46px;">Email: </label>
+		<input type="email" id="email" placeholder="Email" name ="email" value="{% if post['email'] is defined %}{{post['email']}}{% endif %}">
+		<br>
+		<label for "password">Password: </label>
+		<input type="password" id="password" placeholder="Password" name ="password">
+		<br>
+		<label for "password">Password: </label>
+		<input type="password" id="password2" placeholder="Enter your password again" name ="password2">
+		<br>
+		<input class="siteForm" style="margin-left:20px; width:46%;" type="submit" value = "Register">
+	</form>	
+</div>
+{% endblock %}

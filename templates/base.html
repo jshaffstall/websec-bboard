@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <link rel="stylesheet" href="style.css"/>
+            <title>{% block title %}{% endblock %} - BBoard</title>
+        {% endblock %}
+    </head>
+    <body>
+	<header>
+		{% if user == False %}
+			<a class="toplink" href = "login.php"> Login </a>
+			<a class="toplink" href = "register.php"> Register </a>
+		{% else %}
+            <a class="toplink" href = "recent-posts.php"> Recent Posts </a>
+            <a class="toplink" href = "edit-profile.php"> Edit Profile </a>
+			<a class="toplink" href = "logout.php"> Log Out </a>
+		{% endif %}
+	</header>
+	    {% if error %}
+			<div id="error">{{error}}</div>
+		{% endif %}
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="footer">
+            {% block footer %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
