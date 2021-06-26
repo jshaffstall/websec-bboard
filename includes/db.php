@@ -107,3 +107,34 @@ function get_user_by_id ($userid)
     return $user;
 }
 
+function add_post ($user, $content)
+{
+    global $pdo;
+
+    // Simulate what the SQL would be if we weren't using prepared statements
+    // so we can experiment with SQL injection ideas
+    $sql_used = "INSERT INTO posts (user, post) VALUES ('".$user['id']."', '".$content."')";
+
+    $sql = "INSERT INTO posts (user, post, sql_used) VALUES (:user, :post, :sql_used)";
+    $stmt = $pdo->prepare($sql);
+    
+    $stmt->bindValue(':user', $user['id']);
+    $stmt->bindValue(':post', $content);
+    $stmt->bindValue(':sql_used',  $sql_used);
+    
+    $stmt->execute();
+}
+
+function get_recent_posts($count)
+{
+    global $pdo;
+    
+    $sql = "SELECT * FROM posts,users WHERE posts.user = users.id ORDER BY posted_date DESC LIMIT :count";
+    $stmt = $pdo->prepare($sql);
+    
+    $stmt->bindValue(':count', $count, PDO::PARAM_INT);
+    
+    $stmt->execute ();
+
+    return $stmt;
+}

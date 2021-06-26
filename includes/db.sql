@@ -17,8 +17,15 @@ CREATE TABLE `posts` (
   `user` int NOT NULL,
   `post` varchar(255) NOT NULL,
   `sql_used` varchar(255) DEFAULT NULL,
-  `posted_date` timestamp NOT NULL
+  `posted_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `user`, `post`, `sql_used`, `posted_date`) VALUES
+(1, 2, 'First post ever, yay!', 'INSERT INTO posts (user, post) VALUES (\'2\', \'First post ever, yay!\')', '2021-06-26 18:39:26');
 
 -- --------------------------------------------------------
 
@@ -91,6 +98,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
