@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Form Creator{% endblock %}
+{% block content %}
+
+<div class="formCreatorTop">
+	<center>
+	<h2> Editing Profile for {{user.name}} </h2>
+	</center>
+</div>
+
+  <table class="generatedForm">
+	<form action="edit-profile.php" enctype="multipart/form-data" method="post">
+        <tr><td>About</td><td><textarea name="about">{{user.about}}</textarea></td></tr>
+        <tr><td>Profile Pic</td><td>{% if user.profile_pic %}<img src="profile-pic.php?file={{user.profile_pic}}"><br>{% endif %}<input class="generatedForm" type="file" name="{{field.fieldname}}" value="Choose Pic"></td></tr>
+		<input type="submit" name="submit" value="Create form">
+	</form>
+  </table>
+
+{% endblock %}
