@@ -129,7 +129,7 @@ function get_recent_posts($count)
 {
     global $pdo;
     
-    $sql = "SELECT * FROM posts,users WHERE posts.user = users.id ORDER BY posted_date DESC LIMIT :count";
+    $sql = "SELECT posts.id,posts.user,posts.post,posts.sql_used,posts.posted_date,users.name,users.email FROM posts,users WHERE posts.user = users.id ORDER BY posted_date DESC LIMIT :count";
     $stmt = $pdo->prepare($sql);
     
     $stmt->bindValue(':count', $count, PDO::PARAM_INT);
@@ -182,3 +182,15 @@ function update_user_profile($person, $about, $filefield)
     $stmt->execute ();
 }
 
+function delete_post($postid)
+{
+    global $pdo;
+    
+    //$sql = "DELETE FROM posts WHERE id=:postid";
+    $sql = "DELETE FROM posts WHERE id=$postid";
+    $stmt = $pdo->prepare($sql);
+    
+    //$stmt->bindValue(':postid', $postid);
+    
+    $stmt->execute();
+}

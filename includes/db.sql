@@ -28,7 +28,8 @@ INSERT INTO `posts` (`id`, `user`, `post`, `sql_used`, `posted_date`) VALUES
 (1, 2, 'First post ever, yay!', 'INSERT INTO posts (user, post) VALUES (\'2\', \'First post ever, yay!\')', '2021-06-26 18:39:26'),
 (2, 1, 'Welcome, John!  Enjoy the site.', 'INSERT INTO posts (user, post) VALUES (\'1\', \'Welcome, John!  Enjoy the site.\')', '2021-06-26 20:46:52'),
 (3, 2, 'Thanks for the <strong>warm</strong> welcome!', 'INSERT INTO posts (user, post) VALUES (\'2\', \'Thanks for the <strong>warm</strong> welcome!\')', '2021-06-26 21:04:26'),
-(4, 3, 'Hello everyone!', 'INSERT INTO posts (user, post) VALUES (\'3\', \'Hello everyone!\')', '2021-06-26 21:12:52');
+(4, 3, 'Hello everyone!', 'INSERT INTO posts (user, post) VALUES (\'3\', \'Hello everyone!\')', '2021-06-26 21:12:52'),
+(6, 1, 'Welcome Amy!', 'INSERT INTO posts (user, post) VALUES (\'1\', \'Welcome Amy!\')', '2021-06-26 22:32:28');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `name`, `password`, `role`, `about`, `profile_pic`) VALUES
-(1, 'admin@admin.com', 'Admin', 'mypassword', 2, 'I am the admin!', 'Admin'),
+(1, 'admin@admin.com', 'Admin', 'mypassword', 1, 'I am the admin!', 'Admin'),
 (2, 'john@john.com', 'John', 'johnspassword', 2, 'My name is John and this is something about me.  Not much, but something.', 'John'),
 (3, 'amy@amy.com', 'Amy', 'amyspassword', 2, 'I prefer not to share anything about myself, sorry.', 'Amy');
 
@@ -107,7 +108,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `roles`
