@@ -7,7 +7,7 @@
     <h1> Profile for {{person.name}} </h1>
 
   <table style="width:75%">
-        <tr><td style="width:25%">{% if person.profile_pic %}<img src="profile-pic.php?file={{person.profile_pic}}">{% endif %}</td><td style="width:75%"><p class="about">{{user.about}}<p></td></tr>
+        <tr><td style="width:25%">{% if person.profile_pic %}<img src="profile-pic.php?name={{person.profile_pic}}">{% endif %}</td><td style="width:75%"><p class="about">{{person.about|raw}}<p></td></tr>
   </table>
 </div>
 

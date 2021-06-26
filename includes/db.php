@@ -157,7 +157,8 @@ function update_user_profile($person, $about, $filefield)
             $content_type = finfo_file($finfo, $_FILES[$filefield]['tmp_name']);
             finfo_close($finfo);
             
-            if (str_starts_with($content_type, 'image'))
+            // Only allow JPG or PNG
+            if ($content_type == 'image/jpeg' || $content_type == 'image/png')
             {
                 move_uploaded_file($_FILES[$filefield]['tmp_name'], $PROFILES.$person['name']);
                 $file_found = true;

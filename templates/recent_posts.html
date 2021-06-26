@@ -16,7 +16,7 @@
 {% for post in posts %}
 <div>
 <p class="date">{{post.posted_date|date('Y-m-d H:i:s')}}</a>
-<p class="post"><a href="profile.php?name={{post.name}}">{{post.name}}</a> says "{{post.post}}"<p>
+<p class="post"><a href="profile.php?name={{post.name}}">{{post.name}}</a> says "{{post.post|raw}}"<p>
 <p class="sql">{{post.sql_used}}</p>
 </div>
 {% endfor %}
