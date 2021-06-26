@@ -183,6 +183,14 @@ input[type=submit]:hover {
 	font-size: .8em;
 }
 
+.ProfileEditor textarea, .generatedForm input[type=file], .generatedForm img {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border-radius: 8px;
+	font-size: 12pt;
+}
+
 input[type=checkbox] {
 	transform: scale(1.5);
 }
@@ -205,12 +213,18 @@ input[type=checkbox] {
   clear: both;
 }
 
+.RecentPosts div
+{
+    border-radius: 25px;
+    border-style: solid;
+}
+
 .topForm input[type=checkbox] {
 	transform: scale(1.5);
 }
 
 .topForm input[type=text] {
-	width: 15%;
+	width: 75%;
 	margin: 0px 0px;
 	font-size: .8em;
 	padding: 3px 3px;

@@ -13,7 +13,7 @@
 			<a class="toplink" href = "register.php"> Register </a>
 		{% else %}
             <a class="toplink" href = "recent-posts.php"> Recent Posts </a>
-            <a class="toplink" href = "edit-profile.php"> Edit Profile </a>
+            <a class="toplink" href = "edit-profile.php?name={{user.name}}"> Edit Profile </a>
 			<a class="toplink" href = "logout.php"> Log Out </a>
 		{% endif %}
 	</header>

@@ -3,18 +3,16 @@
 {% block title %}Form Creator{% endblock %}
 {% block content %}
 
-<div class="formCreatorTop">
-	<center>
-	<h2> Editing Profile for {{user.name}} </h2>
-	</center>
-</div>
+<div class="ProfileEditor">
+    <h1> Editing Profile for {{user.name}} </h1>
 
-  <table class="generatedForm">
+  <table style="width:75%">
 	<form action="edit-profile.php" enctype="multipart/form-data" method="post">
-        <tr><td>About</td><td><textarea name="about">{{user.about}}</textarea></td></tr>
-        <tr><td>Profile Pic</td><td>{% if user.profile_pic %}<img src="profile-pic.php?file={{user.profile_pic}}"><br>{% endif %}<input class="generatedForm" type="file" name="{{field.fieldname}}" value="Choose Pic"></td></tr>
-		<input type="submit" name="submit" value="Create form">
+        <tr><td style="width:10%"><b>About</b></td><td style="width:90%"><textarea name="about">{{user.about}}</textarea></td></tr>
+        <tr><td><b>Profile Pic</b></td><td>{% if user.profile_pic %}<img src="profile-pic.php?file={{user.profile_pic}}"><br>{% endif %}<input class="generatedForm" type="file" name="{{field.fieldname}}"></td></tr>
+        <tr><td colspan="2"><input type="submit" name="submit" value="Update Profile"></td></tr>
 	</form>
   </table>
+</div>
 
 {% endblock %}

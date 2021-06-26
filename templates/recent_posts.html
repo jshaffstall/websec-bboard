@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Form Creator{% endblock %}
+{% block content %}
+
+<div class="topForm">
+	<form action="recent-posts.php" method="post">
+        <input type="text" name="content">
+        <input type="submit" value="Post">
+	</form>
+</div>
+
+    <h1> Recent Posts </h1>
+
+<div class="RecentPosts">
+{% for post in posts %}
+<div>
+<p class="date">{{post.posted_date|date('Y-m-d H:i:s')}}</a>
+<p class="post"><a href="profile.php?name={{post.name}}">{{post.name}}</a> says "{{post.post}}"<p>
+<p class="sql">{{post.sql_used}}</p>
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}
