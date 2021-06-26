@@ -138,3 +138,46 @@ function get_recent_posts($count)
 
     return $stmt;
 }
+
+function update_user_profile($person, $about, $filefield)
+{
+    global $pdo;
+    global $PROFILES;
+
+    $file_found = false;
+    
+    // If a profile pic has been sent, we need to move it to the right spot
+    if (array_key_exists($filefield, $_FILES))
+    {
+        if (is_uploaded_file($_FILES[$filefield]['tmp_name']))
+        {
+            $file_contents = file_get_contents($_FILES[$filefield]['tmp_name']);
+            
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $content_type = finfo_file($finfo, $_FILES[$filefield]['tmp_name']);
+            finfo_close($finfo);
+            
+            if (str_starts_with($content_type, 'image'))
+            {
+                move_uploaded_file($_FILES[$filefield]['tmp_name'], $PROFILES.$person['name']);
+                $file_found = true;
+            }
+        }
+    }
+    
+    if ($file_found)
+        $sql = "UPDATE users SET about=:about, profile_pic=:name WHERE id=:userid";
+    else
+        $sql = "UPDATE users SET about=:about WHERE id=:userid";
+    
+    $stmt = $pdo->prepare($sql);
+    
+    $stmt->bindValue(':about', $about);
+    $stmt->bindValue(':userid', $person['id']);
+    
+    if ($file_found)
+        $stmt->bindValue(':name', $person['name']);
+    
+    $stmt->execute ();
+}
+

@@ -67,8 +67,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `name`, `password`, `role`, `about`, `profile_pic`) VALUES
-(1, 'admin@admin.com', 'Admin', 'mypassword', 2, NULL, NULL),
-(2, 'john@john.com', 'John', 'johnspassword', 2, NULL, NULL);
+(1, 'admin@admin.com', 'Admin', 'mypassword', 2, 'I am the admin!', 'Admin'),
+(2, 'john@john.com', 'John', 'johnspassword', 2, 'My name is John and this is something about me.  Not much, but something.', 'John');
 
 --
 -- Indexes for dumped tables

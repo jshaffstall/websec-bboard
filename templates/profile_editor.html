@@ -4,12 +4,12 @@
 {% block content %}
 
 <div class="ProfileEditor">
-    <h1> Editing Profile for {{user.name}} </h1>
+    <h1> Editing Profile for {{person.name}} </h1>
 
   <table style="width:75%">
-	<form action="edit-profile.php" enctype="multipart/form-data" method="post">
-        <tr><td style="width:10%"><b>About</b></td><td style="width:90%"><textarea name="about">{{user.about}}</textarea></td></tr>
-        <tr><td><b>Profile Pic</b></td><td>{% if user.profile_pic %}<img src="profile-pic.php?file={{user.profile_pic}}"><br>{% endif %}<input class="generatedForm" type="file" name="{{field.fieldname}}"></td></tr>
+	<form action="edit-profile.php?name={{person.name}}" enctype="multipart/form-data" method="post">
+        <tr><td style="width:10%"><b>About</b></td><td style="width:90%"><textarea name="about">{{person.about}}</textarea></td></tr>
+        <tr><td><b>Profile Pic</b></td><td>{% if person.profile_pic %}<img src="profile-pic.php?file={{person.profile_pic}}"><br>{% endif %}<input class="generatedForm" type="file" name="profilepic"></td></tr>
         <tr><td colspan="2"><input type="submit" name="submit" value="Update Profile"></td></tr>
 	</form>
   </table>

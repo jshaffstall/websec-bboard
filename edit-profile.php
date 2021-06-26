@@ -3,10 +3,29 @@
 require 'config.php';
 
 $error = null;
+$person = null;
 
-// Take the profile to edit from the URL as an example of a URL manipulation vulnerability
-// Also show a fixed version that takes the user to edit from the session
+if (! isset($_GET['name']))
+    $error = "No user name provided";
+else
+{
+    $person = get_user_by_name($_GET['name']);
+    
+    if (! $person)
+        $error = "No user found for that name";
+    
+}
 
-echo $twig->render('profile_editor.html',['error' => $error, 'post' => $_POST]);
+if(! $error && isset($_POST['about']))
+{
+    if (! $error)
+    {
+        //$person = $user;
+        update_user_profile($person, $_POST['about'], 'profilepic');
+        $person = get_user_by_name($person['name']);
+    }
+}
+
+echo $twig->render('profile_editor.html',['error' => $error, 'post' => $_POST, 'person' => $person]);
 
 ?>

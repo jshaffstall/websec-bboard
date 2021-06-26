@@ -8,6 +8,9 @@ if (!isset($TEMPLATES))
 if (!isset($INCLUDES))
     $INCLUDES = './includes/';
 
+if (!isset($PROFILES))
+    $PROFILES = './profiles/';
+
 require_once $INCLUDES.'db.php';
 
 session_start();
