@@ -54,7 +54,7 @@ function get_user ($email)
 {
     global $pdo;
 
-    $sql = "SELECT * FROM users where email=:email";
+    $sql = "SELECT *,TIMESTAMPDIFF(SECOND,last_login,NOW()) as seconds FROM users where email=:email";
     $stmt = $pdo->prepare($sql);
     
     $stmt->bindValue(':email', $email);
@@ -191,6 +191,18 @@ function delete_post($postid)
     $stmt = $pdo->prepare($sql);
     
     //$stmt->bindValue(':postid', $postid);
+    
+    $stmt->execute();
+}
+
+function update_user_last_login($user)
+{
+    global $pdo;
+    
+    $sql = "UPDATE users SET last_login=NOW() WHERE id=:id";
+    $stmt = $pdo->prepare($sql);
+    
+    $stmt->bindValue(':id', $user['id']);
     
     $stmt->execute();
 }

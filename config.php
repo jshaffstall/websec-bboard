@@ -16,7 +16,15 @@ require_once $INCLUDES.'db.php';
 session_start();
 
 if (isset($_SESSION['user']))
+{
 	$user = get_user($_SESSION['user']);
+    
+    if ($user['seconds'] > 1800)
+    {
+        $user = False;
+        unset($_SESSION['user']);
+    }
+}
 else
 	$user = False;
 
