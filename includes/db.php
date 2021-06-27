@@ -186,8 +186,8 @@ function delete_post($postid)
 {
     global $pdo;
     
-    //$sql = "DELETE FROM posts WHERE id=:postid";
     $sql = "DELETE FROM posts WHERE id=$postid";
+    //$sql = "DELETE FROM posts WHERE id=:postid";
     $stmt = $pdo->prepare($sql);
     
     //$stmt->bindValue(':postid', $postid);
