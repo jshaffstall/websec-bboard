@@ -18,6 +18,12 @@ else
 
 if(! $error && isset($_POST['about']))
 {
+    //if ($_POST['password'] != $user['password'])
+    //    $error = "Invalid password";
+    
+    //if (! password_verify ($_POST['password'], $user['password']))
+    //    $error = "Invalid password";
+
     if (! $error)
     {
         //$person = $user;
