@@ -16,6 +16,8 @@ else
     
 }
 
+//$person = $user;
+
 if(! $error && isset($_POST['about']))
 {
     //if ($_POST['password'] != $user['password'])
@@ -26,7 +28,6 @@ if(! $error && isset($_POST['about']))
 
     if (! $error)
     {
-        //$person = $user;
         update_user_profile($person, $_POST['about'], 'profilepic');
         $person = get_user_by_name($person['name']);
     }
