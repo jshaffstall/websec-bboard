@@ -13,6 +13,9 @@ if(isset($_POST['email'])){
         
         if ($password != $password2)
             $error = "Passwords did not match";
+        
+        //else if (strlen($password) < 12)
+        //    $error = "Your password must be at least 12 characters";
     }
     
     if (! $error && empty($_POST['name']))
